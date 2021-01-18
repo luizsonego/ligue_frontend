@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowLeft, FaPlus } from "react-icons/fa";
+import { FaArrowLeft, FaPlus, FaUser } from "react-icons/fa";
 import { useHistory, Link } from "react-router-dom";
 import TopNav from "../../components/topNav";
 
@@ -45,6 +45,9 @@ function DeveloperCreate() {
         <Link to="/novo" className="add">
           <FaPlus />
         </Link>
+        <Link to="/admin" className="add">
+          <FaUser />
+        </Link>
       </TopNav>
 
       <div className="container">
@@ -57,13 +60,6 @@ function DeveloperCreate() {
             placeholder="Nome"
           />
 
-          {/* <input
-            id="hobby"
-            value={hobby}
-            onChange={(event) => setHobby(event.target.value)}
-            className="input-create"
-            placeholder="Hobby"
-          /> */}
           <textarea
             name="hobby"
             id="hobby"
@@ -84,13 +80,17 @@ function DeveloperCreate() {
             placeholder="Data de nascimento"
           />
 
-          <input
+          <select
+            name="gender"
             id="gender"
-            value={gender}
-            onChange={(event) => setGender(event.target.value)}
             className="input-create"
-            placeholder="Sexo"
-          />
+            onChange={(event) => setGender(event.target.value)}
+            value={gender}
+          >
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
 
           <button className="confirm-button" type="submit">
             Confirmar

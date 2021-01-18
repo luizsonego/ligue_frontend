@@ -23,6 +23,11 @@
 .form-create .input-create + input[type="date" i] {
   color: rgb(119, 119, 119);
 }
+.form-create select {
+  background: #fff;
+  color: rgb(119, 119, 119);
+}
+
 
 .form-create label {
   margin-left: 15px;

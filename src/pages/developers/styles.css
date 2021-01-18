@@ -22,6 +22,7 @@
   width: 45px;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .button-navigation {
@@ -37,6 +38,7 @@
   background: transparent;
   border: 2px solid #ccc;
   transition: .5s all;
+  cursor: pointer;
 }
 
 .prev-button {
@@ -45,10 +47,30 @@
   background: transparent;
   border: 2px solid #ccc;
   transition: .5s all;
+  cursor: pointer;
 }
 
-.next-button:hover,
-.prev-button:hover {
-  background: #ccc;
+.next-button:hover{
+  background: #0388A6;
   transition: .5s all;
+  color: #fff;
+}
+.prev-button:hover {
+  background: #e68609;
+  color: #fff;
+  transition: .5s all;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  .form-search .input-search {
+    width: 300px;
+  }
+
 }

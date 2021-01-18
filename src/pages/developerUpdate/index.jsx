@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowLeft, FaPlus } from "react-icons/fa";
+import { FaArrowLeft, FaPlus, FaUser } from "react-icons/fa";
 import { useHistory, Link, useParams } from "react-router-dom";
 import TopNav from "../../components/topNav";
 
@@ -11,8 +11,6 @@ function DeveloperUpdate() {
   const history = useHistory();
   const params = useParams();
 
-  const [dataDeveloper, setDataDeveloper] = useState();
-
   const [name, setName] = useState("");
   const [hobby, setHobby] = useState("");
   const [birth, setBirth] = useState("");
@@ -23,7 +21,6 @@ function DeveloperUpdate() {
     try {
       api.get(`developers/${params.id}`).then((response) => {
         const birthValue = response.data.birth.split("/");
-        setDataDeveloper(response.data);
         setName(response.data.name);
         setHobby(response.data.hobby);
         setBirth(`${birthValue[0]}-${birthValue[1]}-${birthValue[2]}`);
@@ -31,12 +28,10 @@ function DeveloperUpdate() {
         setAge(response.data.age);
       });
     } catch (error) {}
-  }, [setDataDeveloper]);
+  }, [params.id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const newAge = new Date().getFullYear() - birth.split("-")[0];
 
     try {
       api
@@ -64,16 +59,19 @@ function DeveloperUpdate() {
         <Link to="/novo" className="add">
           <FaPlus />
         </Link>
+        <Link to="/admin" className="add">
+          <FaUser />
+        </Link>
       </TopNav>
 
       <div className="container">
-        <form onSubmit={handleSubmit} className="form-create">
+        <form onSubmit={handleSubmit} className="form-update">
           <label htmlFor="name">Nome</label>
           <input
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="input-create"
+            className="input-update"
             placeholder="Nome"
           />
 
@@ -83,7 +81,7 @@ function DeveloperUpdate() {
             id="hobby"
             cols="30"
             rows="10"
-            className="input-create"
+            className="input-update"
             placeholder="Hobby"
             value={hobby}
             onChange={(event) => setHobby(event.target.value)}
@@ -95,7 +93,7 @@ function DeveloperUpdate() {
             id="birth"
             value={birth}
             onChange={(event) => setBirth(event.target.value)}
-            className="input-create"
+            className="input-update"
             placeholder="Data de nascimento"
           />
 
@@ -105,18 +103,22 @@ function DeveloperUpdate() {
             id="age"
             value={age}
             onChange={(event) => setAge(event.target.value)}
-            className="input-create"
+            className="input-update"
             placeholder="Idade"
           />
 
           <label htmlFor="gender">Sexo</label>
-          <input
+          <select
+            name="gender"
             id="gender"
-            value={gender}
+            className="input-update"
             onChange={(event) => setGender(event.target.value)}
-            className="input-create"
-            placeholder="Sexo"
-          />
+            value={gender}
+          >
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Outro">Outro</option>
+          </select>
 
           <button className="confirm-button" type="submit">
             Confirmar

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
 import TopNav from "../../components/topNav";
 import { Link } from "react-router-dom";
-import { FaPlus, FaSearch } from "react-icons/fa";
+import { FaPlus, FaSearch, FaUser } from "react-icons/fa";
 
 import api from "../../services/api";
 
@@ -26,14 +26,14 @@ function Developers() {
     event.preventDefault();
     const response = await api.get(`${dataDevelopers.next}`);
     setDataDevelopers(response.data);
-    window.scroll({top: 0, left: 0, behavior: 'smooth' })
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }
 
   async function handlePrevPage(event) {
     event.preventDefault();
     const response = await api.get(`${dataDevelopers.prev}`);
     setDataDevelopers(response.data);
-    window.scroll({top: 0, left: 0, behavior: 'smooth' })
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }
 
   async function handleSearchDeveloper(event) {
@@ -47,13 +47,16 @@ function Developers() {
   }
 
   if (!dataDevelopers) {
-    return <p>carregando...</p>;
+    return <div className="loading">carregando...</div>;
   }
   return (
     <>
       <TopNav>
         <Link to="/novo" className="add">
           <FaPlus />
+        </Link>
+        <Link to="/admin" className="add">
+          <FaUser />
         </Link>
       </TopNav>
 

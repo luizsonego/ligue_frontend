@@ -15,7 +15,9 @@ function Card({ name, gender, age, hobby, birth, id }) {
       <div className="card" onClick={handleClickDeveloper}>
         
         <div className="card-head">
-          <div className="profile-picture"></div>
+          <div className="profile-picture">
+            <img src="https://picsum.photos/200/300?random=1" alt=""/>
+          </div>
           <p>
             <span>{gender}</span>
             <span>{age}</span>
