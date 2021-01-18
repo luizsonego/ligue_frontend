@@ -1,0 +1,54 @@
+.form-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.form-search .input-search {
+  height: 50px;
+  width: 700px;
+
+  border-radius: 30px;
+  margin-left: 45px;
+  border: 1px solid #ccc;
+
+  padding-left: 15px;
+  padding-right: 40px;
+}
+
+.form-search .submit-search {
+  position: relative;
+  right: 45px;
+  width: 45px;
+  background: transparent;
+  border: none;
+}
+
+.button-navigation {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.next-button {
+  padding: 10px 20px;
+  border-radius: 0px 10px 10px 0px;
+  background: transparent;
+  border: 2px solid #ccc;
+  transition: .5s all;
+}
+
+.prev-button {
+  padding: 10px 20px;
+  border-radius: 10px 0 0 10px;
+  background: transparent;
+  border: 2px solid #ccc;
+  transition: .5s all;
+}
+
+.next-button:hover,
+.prev-button:hover {
+  background: #ccc;
+  transition: .5s all;
+}

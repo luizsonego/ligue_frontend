@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  margin-top: 25px;
+}
+
+table tr td {
+  height: 40px;
+}
+
+.name {
+  width: auto;
+}
+.birth {
+  width: 130px;
+}
+.age {
+  width: 80px;
+}
+.action {
+  width: 100px;
+}
+
+.action-icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
